@@ -1,4 +1,5 @@
 import { About } from "@/components/sections/about";
+import { Contact } from "@/components/sections/contact";
 import { Hero } from "@/components/sections/hero";
 import { Works } from "@/components/sections/works";
 import { WaveBackground } from "@/components/decorative/wave-background";
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <About />
       <Works />
+      <Contact />
     </main>
   );
 }
