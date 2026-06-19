@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useSyncExternalStore } from "react"
 import {
   AnimatePresence,
   motion,
@@ -28,8 +28,9 @@ interface BlurFadeProps extends MotionProps {
   blur?: string
 }
 
-const getFilter = (v: Variants[string]) =>
-  typeof v === "function" ? undefined : v.filter
+const subscribe = () => () => {}
+const getClientSnapshot = () => true
+const getServerSnapshot = () => false
 
 export function BlurFade({
   children,
@@ -41,40 +42,36 @@ export function BlurFade({
   direction = "down",
   inView = false,
   inViewMargin = "-50px",
-  blur = "6px",
+  blur: _blur = "6px",
   ...props
 }: BlurFadeProps) {
+  void _blur
   const ref = useRef(null)
+  const mounted = useSyncExternalStore(
+    subscribe,
+    getClientSnapshot,
+    getServerSnapshot,
+  )
   const inViewResult = useInView(ref, { once: true, margin: inViewMargin })
-  const isInView = !inView || inViewResult
+  const isInView = inView ? mounted && inViewResult : true
   const defaultVariants: Variants = {
     hidden: {
       [direction === "left" || direction === "right" ? "x" : "y"]:
         direction === "right" || direction === "down" ? -offset : offset,
       opacity: 0,
-      filter: `blur(${blur})`,
     },
     visible: {
       [direction === "left" || direction === "right" ? "x" : "y"]: 0,
       opacity: 1,
-      filter: `blur(0px)`,
     },
   }
   const combinedVariants = variant ?? defaultVariants
-
-  const hiddenFilter = getFilter(combinedVariants.hidden)
-  const visibleFilter = getFilter(combinedVariants.visible)
-
-  const shouldTransitionFilter =
-    hiddenFilter != null &&
-    visibleFilter != null &&
-    hiddenFilter !== visibleFilter
 
   return (
     <AnimatePresence>
       <motion.div
         ref={ref}
-        initial="hidden"
+        initial={false}
         animate={isInView ? "visible" : "hidden"}
         exit="hidden"
         variants={combinedVariants}
@@ -82,7 +79,6 @@ export function BlurFade({
           delay: 0.04 + delay,
           duration,
           ease: "easeOut",
-          ...(shouldTransitionFilter ? { filter: { duration } } : {}),
         }}
         className={className}
         {...props}
