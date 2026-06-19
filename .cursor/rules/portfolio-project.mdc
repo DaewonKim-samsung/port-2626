@@ -1,0 +1,30 @@
+---
+description: 포트폴리오 목적, 기술 스택, 프로젝트 구조
+alwaysApply: true
+---
+
+# Portfolio Project
+
+## 목적
+
+- 개인 포트폴리오 사이트
+- 단순 이력서가 아닌 AI 시대의 브랜딩 사이트
+- 콘텐츠 → `lib/` / 레이아웃 → `components/sections/`
+
+## 기술 스택
+
+- **Next.js** App Router (API 변경 전 `node_modules/next/dist/docs/` 확인)
+- **ShadCN** — `bunx shadcn@latest add <component>`
+- **Lucide** — `lucide-react`
+
+## 구조
+
+- `components/ui/` — ShadCN (가급적 수정 금지)
+- `components/sections/` — 페이지 섹션
+- `components/decorative/` — 시각 장식
+- `lib/profile.ts` — 프로필 데이터
+
+## 코딩
+
+- Server Component 기본, 최소 diff, 시맨틱 HTML
+- 커밋은 사용자 요청 시만

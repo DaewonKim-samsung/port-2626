@@ -1,0 +1,40 @@
+---
+description: Apple/Linear 디자인 원칙, ShadCN·Lucide UI 규칙
+globs: "**/*.{tsx,css}"
+alwaysApply: false
+---
+
+# UI & Design
+
+## 디자인 원칙
+
+### Apple — 깔끔함
+
+- 넉넉한 여백, 명확한 타이포 계층, 절제된 장식
+
+### Linear — 정돈
+
+- 일관된 grid/flex, spacing·radius 스케일 통일, hover/focus 상태
+
+### ShadCN 우선
+
+```tsx
+import { Button } from "@/components/ui/button";
+import { Mail } from "lucide-react";
+```
+
+- UI primitive는 ShadCN CLI 추가 후 사용
+- 커스텀 UI → `components/sections/` 또는 `components/decorative/`
+- 아이콘은 Lucide만
+
+## 스타일
+
+- `cn()` (`@/lib/utils`) + 디자인 토큰 (`text-muted-foreground`, `border-border`)
+- 팔레트 확장 → `app/globals.css` CSS 변수
+- JSX에 one-off hex 남용 금지
+
+## 금지
+
+- ShadCN 대체용 raw `<button>` (의도적 제외 시 제외)
+- 정적 섹션에 불필요한 `"use client"`
+- `lib/`에 둬야 할 카피 하드코딩

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <radialGradient id="mesh-cyan" cx="30%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#67e8f9" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#67e8f9" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="mesh-blue" cx="75%" cy="65%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="mesh-warm" cx="90%" cy="85%" r="45%">
+      <stop offset="0%" stop-color="#fdba74" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#fdba74" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="wave-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0" />
+      <stop offset="45%" stop-color="#38bdf8" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.85" />
+    </linearGradient>
+    <linearGradient id="wave-mid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="wave-front" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0.95" />
+    </linearGradient>
+    <linearGradient id="wave-glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- mesh atmosphere -->
+  <rect width="1440" height="520" fill="#fdfbf7" />
+  <rect width="1440" height="520" fill="url(#mesh-cyan)" />
+  <rect width="1440" height="520" fill="url(#mesh-blue)" />
+  <rect width="1440" height="520" fill="url(#mesh-warm)" />
+
+  <!-- distant swell -->
+  <path
+    fill="url(#wave-fade)"
+    d="M0,100 C180,40 360,160 540,100 C720,40 900,160 1080,110 C1260,60 1380,80 1440,100 L1440,520 L0,520 Z"
+  />
+
+  <!-- mid wave -->
+  <path
+    fill="url(#wave-mid)"
+    d="M0,200 C240,140 480,260 720,200 C960,140 1200,260 1440,210 L1440,520 L0,520 Z"
+  />
+
+  <!-- foreground wave -->
+  <path
+    fill="url(#wave-front)"
+    d="M0,290 C200,230 400,350 600,290 C800,230 1000,350 1200,300 C1340,265 1400,280 1440,290 L1440,520 L0,520 Z"
+  />
+
+  <!-- luminous foam crest -->
+  <path
+    fill="none"
+    stroke="#ffffff"
+    stroke-opacity="0.7"
+    stroke-width="3"
+    d="M0,290 C200,230 400,350 600,290 C800,230 1000,350 1200,300 C1340,265 1400,280 1440,290"
+  />
+  <path
+    fill="none"
+    stroke="#bae6fd"
+    stroke-opacity="0.8"
+    stroke-width="2"
+    d="M0,290 C200,230 400,350 600,290 C800,230 1000,350 1200,300 C1340,265 1400,280 1440,290"
+  />
+
+  <!-- shimmer highlight -->
+  <path
+    fill="url(#wave-glow)"
+    d="M0,290 C200,230 400,350 600,290 C800,230 1000,350 1200,300 C1340,265 1400,280 1440,290 L1440,340 L0,340 Z"
+    opacity="0.6"
+  />
+
+  <!-- mid ripple -->
+  <path
+    fill="none"
+    stroke="#67e8f9"
+    stroke-opacity="0.5"
+    stroke-width="2"
+    d="M0,200 C240,140 480,260 720,200 C960,140 1200,260 1440,210"
+  />
+</svg>
